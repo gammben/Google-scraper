@@ -6,7 +6,8 @@ def encode(text):
     return text.encode('utf-8')
 
 #input the query
-query = "arya stark"
+#query = "besiege game"
+query = raw_input("introduce query: ")
 
 #open the document where links will be inserted
 fout = open('links.txt', 'w')
@@ -21,7 +22,7 @@ def google_scrape(query):
 
     linkdictionary = {}
 
-    for li in soup.findAll('li', attrs={'class':'g'}):
+    for li in soup.findAll('h3', attrs={'class':'r'}):
         sLink = li.find('a')
         #print sLink['href']
         fout.write(sLink['href'] + '\n')
